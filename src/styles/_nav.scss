@@ -1,0 +1,25 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background: #6c7584;
+  color: white;
+}
+
+ul {
+  display: flex;
+  list-style-type: none;
+  margin-right: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  margin-left: 15px;
+}
+
+a.active {
+  font-weight: bold;
+  border-bottom: 2px solid white;
+}

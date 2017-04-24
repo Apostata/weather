@@ -5,7 +5,8 @@ import { NavLink } from 'react-router-dom';
 // to the rendered element when it matches the current URL.
 
 const Nav = () => (
-  <div>
+  <div className="nav">
+    <h3>React Weather Map</h3>
     <ul>
       <li>
         <NavLink exact activeClassName="active" to="/">Get Weather</NavLink>
