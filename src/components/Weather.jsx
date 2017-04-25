@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import WeatherMessage from './WeatherMessage';
 import Countries from './Countries';
-import { getTemp } from '../api/API';
+import { getTemp, getTempNavBar } from '../api/API';
 
 export default class Weather extends Component {
   constructor(props) {
@@ -15,6 +15,26 @@ export default class Weather extends Component {
       weather: '',
     };
   }
+
+  componentDidMount() {
+    const navBarQuery = this.props.location.search;
+    const query = navBarQuery.substr(1, navBarQuery.length - 1);
+
+    if (navBarQuery && navBarQuery.length > 0) {
+      getTempNavBar(query).then((data) => {
+        if (data === 'City Not Found') {
+          return this.setState({ error: data });
+        }
+        this.setState({
+          location: data.list[0].name,
+          temp: data.list[0].main.temp,
+          weather: data.list[0].weather[0].description,
+          error: '',
+        });
+      }), error => this.setState({ error });
+    }
+  }
+
   render() {
     return (
       <div className="wrapper">

@@ -7,20 +7,20 @@ const Examples = () => (
       <h3 className="title">Examples</h3>
       <p className="content-box">Here are a few example locations to try out:</p>
       <ul className="links">
-        <li>
-          <Link to="/?city=Rio de Janeiro,country=BR">Rio de Janeiro, BR</Link>
+        <li className="links-examples">
+          <Link to="/?Rio de Janeiro,BR">Rio de Janeiro, BR</Link>
         </li>
-        <li>
-          <Link to="/?city=New York,country=US">New York, US</Link>
+        <li className="links-examples">
+          <Link to="/?New York,US">New York, US</Link>
         </li>
-        <li>
-          <Link to="/?city=London,country=GB">London, GB</Link>
+        <li className="links-examples">
+          <Link to="/?London,GB">London, GB</Link>
         </li>
-        <li>
-          <Link to="/?city=Quebec,country=CA">Quebec, CA</Link>
+        <li className="links-examples">
+          <Link to="/?Quebec,CA">Quebec, CA</Link>
         </li>
-        <li>
-          <Link to="/?city=Tokyo,country=JP">Tokyo, JP</Link>
+        <li className="links-examples">
+          <Link to="/?Tokyo,JP">Tokyo, JP</Link>
         </li>
       </ul>
     </div>
