@@ -10,7 +10,7 @@ const WeatherMessage = (props) => {
   }
   return (
     <div>
-      <h3>It's {temp}°C, {weather} in {location}.</h3>
+      <h3 className="msg">It's {temp}°C, {weather} in {location}.</h3>
     </div>
   );
 };

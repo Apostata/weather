@@ -17392,7 +17392,7 @@ var Weather = function (_Component) {
           { className: 'box' },
           _react2.default.createElement(
             'h3',
-            null,
+            { className: 'title' },
             'Get Weather'
           ),
           _react2.default.createElement(
@@ -17499,7 +17499,7 @@ var WeatherMessage = function WeatherMessage(props) {
     null,
     _react2.default.createElement(
       'h3',
-      null,
+      { className: 'msg' },
       'It\'s ',
       temp,
       '\xB0C, ',

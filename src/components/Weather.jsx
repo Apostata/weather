@@ -19,7 +19,7 @@ export default class Weather extends Component {
     return (
       <div className="wrapper">
         <div className="box">
-          <h3>Get Weather</h3>
+          <h3 className="title">Get Weather</h3>
 {/* A bind call function in a JSX prop will create a brand new function on
 every single render. This is bad for performance, as it will result in the garbage
 collector being invoked way more than is necessary. Because of this, I opted to
