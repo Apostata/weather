@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 // ISO 3166 country codes:
 
 const Countries = props => (
-  <select value={props.value} onChange={props.onChange}>
+  <select id={props.id} value={props.value} onChange={props.onChange}>
     <option value="">Country</option>
     <option value="AF">Afghanistan</option>
     <option value="AX">Aland Islands</option>
@@ -261,6 +261,7 @@ const Countries = props => (
 Countries.propTypes = {
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default Countries;

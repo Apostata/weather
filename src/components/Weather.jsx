@@ -29,32 +29,57 @@ leave the entire callback in onSubmit. */}
             onSubmit={(e) => {
               e.preventDefault();
               const { city, country } = this.state;
-              if (city && country) {
+              if (!city) {
+                this.setState({
+// Resetting weather, temp, and location is for user errors in new searches:
+                  location: '',
+                  temp: 0,
+                  error: 'Please select a city',
+                  weather: '',
+                });
+                document.getElementById('City').classList.add('input-error')
+              } else if (city && !country) {
+                this.setState({
+                  location: '',
+                  temp: 0,
+                  error: 'Please select a country',
+                  weather: '',
+                 });
+                 document.getElementById('City').classList.toggle('input-error')
+                 document.getElementById('Country').classList.add('input-error')
+              } else if (city && country) {
                 getTemp(city, country).then((data) => {
+// The API doesn't return a error when not found a city:
+                  if (data === 'City Not Found') {
+                    return this.setState({ error: data });
+                  }
                   this.setState({
                     location: data.list[0].name,
                     temp: data.list[0].main.temp,
-                    weather: data.list[0].weather[0].description
+                    weather: data.list[0].weather[0].description,
+                    city: '',
+                    country: '',
+                    error: '',
                   })
-                }), error => that.setState({ error });
+                  document.getElementById('City').classList.remove('input-error')
+                  document.getElementById('Country').classList.remove('input-error')
+                }), error => this.setState({ error });
               }
-              this.setState({
-                city: '',
-                country: '',
-              });
             }
-            }
+          }
           >
             {/* Controled inputs */}
             <input
               type="text"
-              value={this.state.country}
-              onChange={e => this.setState({ country: e.target.value })}
+              id="City"
+              value={this.state.city}
+              onChange={e => this.setState({ city: e.target.value })}
               placeholder="Enter city name"
             />
             <Countries
-              value={this.state.city}
-              onChange={e => this.setState({ city: e.target.value })}
+              id="Country"
+              value={this.state.country}
+              onChange={e => this.setState({ country: e.target.value })}
             />
             <button type="submit">Get Weather</button>
           </form>

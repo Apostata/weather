@@ -3,16 +3,13 @@ import PropTypes from 'prop-types';
 
 const WeatherMessage = (props) => {
   const { temp, location, weather, error } = props;
-  if (!temp && !location) {
-    return null;
+
+  if (temp && location && weather) {
+    return <h3 className="msg">It's {temp}°C, {weather} in {location}.</h3>;
   } else if (error) {
-    return <p>{ error }</p>;
+    return <h3 className="error">{ error }</h3>;
   }
-  return (
-    <div>
-      <h3 className="msg">It's {temp}°C, {weather} in {location}.</h3>
-    </div>
-  );
+  return null;
 };
 
 WeatherMessage.propTypes = {
